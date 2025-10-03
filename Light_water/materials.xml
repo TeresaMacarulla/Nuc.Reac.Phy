@@ -20,7 +20,7 @@
     <nuclide ao="1.0" name="He4"/>
   </material>
   <material id="4" name="Zircaloy">
-    <density units="g/cm3" value="6.55"/>
+    <density units="g/cm3" value="6.52"/>
     <nuclide ao="0.5145" name="Zr90"/>
     <nuclide ao="0.1122" name="Zr91"/>
     <nuclide ao="0.1715" name="Zr92"/>
