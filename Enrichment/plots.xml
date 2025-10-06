@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plots>
+  <plot basis="xy" color_by="material" filename="pin_xy" id="1" type="slice">
+    <pixels>800 800</pixels>
+    <origin>0.0 0.0 0.0</origin>
+    <width>1.4 1.4</width>
+    <color id="1" rgb="0 128 0"/>
+    <color id="3" rgb="255 255 255"/>
+    <color id="5" rgb="165 42 42"/>
+    <color id="6" rgb="128 128 128"/>
+  </plot>
+  <plot basis="xz" color_by="material" filename="pin_xz" id="2" type="slice">
+    <pixels>800 800</pixels>
+    <origin>0.0 0.0 0.0</origin>
+    <width>1.4 2.0</width>
+    <color id="1" rgb="0 128 0"/>
+    <color id="3" rgb="255 255 255"/>
+    <color id="5" rgb="165 42 42"/>
+    <color id="6" rgb="128 128 128"/>
+  </plot>
+</plots>
