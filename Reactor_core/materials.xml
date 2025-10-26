@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<materials>
+  <material depletable="true" id="1" name="Uranium dioxide">
+    <density units="g/cm3" value="10.97"/>
+    <nuclide ao="0.02" name="U235"/>
+    <nuclide ao="0.98" name="U238"/>
+    <nuclide ao="1.999242" name="O16"/>
+    <nuclide ao="0.000758" name="O17"/>
+    <sab name="c_O_in_UO2"/>
+  </material>
+  <material id="2" name="Light water">
+    <density units="g/cm3" value="1.0"/>
+    <nuclide ao="2.0" name="H1"/>
+    <nuclide ao="0.999621" name="O16"/>
+    <nuclide ao="0.000379" name="O17"/>
+    <sab name="c_H_in_H2O"/>
+  </material>
+  <material id="3" name="Helium">
+    <density units="g/cm3" value="0.0001786"/>
+    <nuclide ao="1.0" name="He4"/>
+  </material>
+  <material id="4" name="Zircaloy">
+    <density units="g/cm3" value="6.52"/>
+    <nuclide ao="0.5145" name="Zr90"/>
+    <nuclide ao="0.1122" name="Zr91"/>
+    <nuclide ao="0.1715" name="Zr92"/>
+    <nuclide ao="0.1738" name="Zr94"/>
+    <nuclide ao="0.028" name="Zr96"/>
+  </material>
+  <material id="5" name="B4C">
+    <density units="g/cm3" value="2.52"/>
+    <nuclide ao="0.796" name="B10"/>
+    <nuclide ao="3.204" name="B11"/>
+    <nuclide ao="1.0" name="C0"/>
+  </material>
+</materials>

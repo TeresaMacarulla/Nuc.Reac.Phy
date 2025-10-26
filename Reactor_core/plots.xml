@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plots>
+  <plot basis="xy" color_by="material" filename="assembly_xy" id="1" type="slice">
+    <pixels>900 900</pixels>
+    <background>255 255 255</background>
+    <origin>0.0 0.0 0.0</origin>
+    <width>23.799999999999997 23.799999999999997</width>
+    <color id="2" rgb="11 61 145"/>
+    <color id="5" rgb="255 255 255"/>
+  </plot>
+</plots>
