@@ -46,10 +46,10 @@ water_cell = openmc.Cell(fill=light_water)
 outer_uni = openmc.Universe(cells=[water_cell])
 f_assembly.outer = outer_uni
 
-# Putting the lattice into a simulation (boundaries as given)
+# Putting the lattice into a simulation 
 outedge = "reflective"  # Infinite reactor or singular assembly
-outcap = openmc.ZPlane(+assembly_z*pinz/2, boundary_type=outedge)
-outbot = openmc.ZPlane(-assembly_z*pinz/2, boundary_type=outedge)
+outcap = openmc.ZPlane(assembly_z, boundary_type=outedge)
+outbot = openmc.ZPlane(-assembly_z, boundary_type=outedge)
 outcell_xy = openmc.model.rectangular_prism(width=23.8, height=23.8, boundary_type=outedge)
 out_region = outcell_xy & +outbot & -outcap
 
@@ -87,4 +87,4 @@ if __name__ == "__main__":
     plots = openmc.Plots([plot])
     plots.export_to_xml()
     openmc.plot_geometry()
-    print("assembly.py: plot generado con color_by=material.")
+    print("assembly.py: plot generated")
