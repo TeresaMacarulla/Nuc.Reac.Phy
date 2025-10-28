@@ -52,13 +52,12 @@ def build_core():
     latt.pitch = (pitch_assm, pitch_assm, 2)  # 2 cm for each z surface
     core_cells = np.full((150, nx, ny), assembly_uni, dtype=object) # fill with fuel assemblies
 
-    # example: place 4 assemblies with control rows 
-    mid = nx//2
+    # Place some assemblies with control rows 
+    #mid = nx//2
     #for (i,j) in [(mid,mid), (mid-2,mid), (mid+2,mid), (mid,mid-2), (mid,mid+2)]:
     #for (i,j) in [(mid,mid), (mid-2,mid), (mid+2,mid), (mid,mid-2), (mid,mid+2), (mid+2,mid+2), (mid-2,mid+2), (mid+2,mid-2), (mid-2,mid-2), (mid,mid-4), (mid,mid+4), (mid-4,mid), (mid+4,mid)]:
         #core_cells[:, i, j] = ctrl_assembly_uni
     core_cells[:, 1:8, 1:8] = ctrl_assembly_uni
-
 
     latt.universes = core_cells.tolist()
 
@@ -76,9 +75,7 @@ def build_core():
 
     # reflectors/vessel
     r_reflector = openmc.ZCylinder(r=core_radius+25.0, boundary_type='transmission')  # ~25 cm water
-    #r_reflector = openmc.ZCylinder(r=core_radius+10.0, boundary_type='transmission')  # ~10 cm water
     r_vessel    = openmc.ZCylinder(r=core_radius+25.0+10.0, boundary_type='vacuum')   # ~10 cm steel + vacuum outside
-    #r_vessel    = openmc.ZCylinder(r=core_radius+10.0+25.0, boundary_type='vacuum')   # ~20 cm steel + vacuum outside
 
     # materials
     steel = openmc.Material(name="Steel"); steel.add_element("Fe", 1.0); steel.set_density("g/cm3", 7.9)
@@ -129,17 +126,53 @@ def plot_core_xy(filename="core_xy.png", width_cm=260.0, pixels=1400):
     print(f"Plot generated: {filename}")
 
 if __name__ == "__main__":
-    # Build and export the core model
-    geom = build_core()
 
-    plot_core_xy(filename="core_xy.png", width_cm=280.0, pixels=1400)
+    print(" ")
+    print("-------------------------------------------------------------------------------")
+    print(" ")
+    print("1: Plot an xy plane of the core.")
+    print("2: Run the simulation.")
+    print("3: Run several simulation changing the temperature in the fuel.")
+    number = float(input("Choose a number: "))
 
-    # (Optional) run the simulation after plotting
-    openmc.run()
+    if number == 1:
+        # Build and export the core model
+        geom = build_core()
+        plot_core_xy(filename="core_xy.png", width_cm=280.0, pixels=1400)
+        print("See the core in: <<core_xy.png>> inside this folder")
 
-    #k-effective (Collision)     = 1.25289 +/- 0.00055
-    #k-effective (Track-length)  = 1.25364 +/- 0.00067
-    #k-effective (Absorption)    = 1.25337 +/- 0.00055
-    #Combined k-effective        = 1.25321 +/- 0.00043
-    #Leakage Fraction            = 0.00420 +/- 0.00005
+    elif number == 2:
+        # Build and export the core model
+        geom = build_core()
+        openmc.run()
+
+    elif number == 3:
+        Tf = float(input("Choose a fuel temperature [K]: "))
+        geom = build_core()
+
+        for cell in geom.get_all_cells().values():
+            if isinstance(cell.fill, openmc.Material) and cell.fill.name == "Uranium dioxide":
+                cell.temperature = Tf
+            geom.export_to_xml()
+
+        settings = openmc.Settings()
+        settings.temperature = {"default": 600, "method": "interpolation"}
+        settings.batches, settings.inactive, settings.particles = 150, 30, 30000
+        settings.source = openmc.IndependentSource(
+            space=openmc.stats.Box([-105.0,-105.0,-150*2/2],[105.0,105.0,150*2/2], only_fissionable=True))
+        settings.export_to_xml()
+
+        openmc.run() 
+
+    else:
+        print("Not an option.")
+
+# T = 400 K, k = 1.16313 +/- 0.00052
+# T = 600 K,  k = 1.15820 +/- 0.00051
+# T = 800 K,  k = 1.15361 +/- 0.00047
+# T = 900 K,  k = 1.15167 +/- 0.00049
+# T = 1000 K,  k = 1.15005 +/- 0.00046
+# T = 1200 K,  k = 1.14690 +/- 0.00050
+
+
 

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <geometry>
-  <cell id="1" material="1" name="fuel" region="-7 1 -2 3 -4 5 -6" universe="1"/>
+  <cell id="1" material="1" name="fuel" region="-7 1 -2 3 -4 5 -6" temperature="400.0" universe="1"/>
   <cell id="2" material="3" name="gap" region="7 -8 1 -2 3 -4 5 -6" universe="1"/>
   <cell id="3" material="4" name="clad" region="8 -9 1 -2 3 -4 5 -6" universe="1"/>
   <cell id="4" material="2" name="mod" region="9 1 -2 3 -4 5 -6" universe="1"/>
   <cell id="10" material="2" universe="5"/>
   <cell fill="4" id="11" region="10 -11 12 -13 14 -15" universe="6"/>
-  <cell id="12" material="6" name="fuel" region="-22 16 -17 18 -19 20 -21" universe="7"/>
+  <cell id="12" material="6" name="fuel" region="-22 16 -17 18 -19 20 -21" temperature="400.0" universe="7"/>
   <cell id="13" material="8" name="gap" region="22 -23 16 -17 18 -19 20 -21" universe="7"/>
   <cell id="14" material="9" name="clad" region="23 -24 16 -17 18 -19 20 -21" universe="7"/>
   <cell id="15" material="7" name="mod" region="24 16 -17 18 -19 20 -21" universe="7"/>

@@ -56,8 +56,8 @@
   </material>
   <material id="10" name="B4C">
     <density units="g/cm3" value="2.52"/>
-    <nuclide ao="3.6" name="B10"/>
-    <nuclide ao="0.4" name="B11"/>
+    <nuclide ao="0.796" name="B10"/>
+    <nuclide ao="3.204" name="B11"/>
     <nuclide ao="1.0" name="C0"/>
   </material>
   <material id="11" name="Steel">
