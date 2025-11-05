@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<geometry>
+  <cell id="21" material="1" name="fuel" region="-52 46 -47 48 -49 50 -51" universe="6"/>
+  <cell id="22" material="4" name="gap" region="52 -53 46 -47 48 -49 50 -51" universe="6"/>
+  <cell id="23" material="5" name="clad" region="53 -54 46 -47 48 -49 50 -51" universe="6"/>
+  <cell id="24" material="2" name="water" region="54 46 -47 48 -49 50 -51" universe="6"/>
+  <surface boundary="reflective" coeffs="-1.0" id="46" name="minimum x" type="x-plane"/>
+  <surface boundary="reflective" coeffs="1.0" id="47" name="maximum x" type="x-plane"/>
+  <surface boundary="reflective" coeffs="-1.0" id="48" name="minimum y" type="y-plane"/>
+  <surface boundary="reflective" coeffs="1.0" id="49" name="maximum y" type="y-plane"/>
+  <surface boundary="reflective" coeffs="-1.0" id="50" type="z-plane"/>
+  <surface boundary="reflective" coeffs="1.0" id="51" type="z-plane"/>
+  <surface coeffs="0.0 0.0 0.4" id="52" type="z-cylinder"/>
+  <surface coeffs="0.0 0.0 0.42" id="53" type="z-cylinder"/>
+  <surface coeffs="0.0 0.0 0.45" id="54" type="z-cylinder"/>
+</geometry>

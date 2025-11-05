@@ -164,3 +164,7 @@ openmc.run()
 # EXERCISE G and H-----------------------------------------------------------------------------------------------
 
 # Change "Light water" for "Heavy water" or "Graphite". This exercise is in "heavy_water/Project2.py"
+
+# EXERCISE I----------------------------------------------------------------------------------------------------
+
+# Obtain the thermal utilization factor f vs. V from "Volume_variation.py"

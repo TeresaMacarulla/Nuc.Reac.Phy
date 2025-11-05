@@ -1,0 +1,11 @@
+ ==================>     TALLY 11: THERM_ABS_IN_FUEL     <==================
+
+ Cell 21
+   Incoming Energy [0, 1)
+     Total Material
+       Absorption Rate                      0.451878 +/- 0.000852925
+ ===================>     TALLY 12: THERM_ABS_TOTAL     <===================
+
+ Incoming Energy [0, 1)
+   Total Material
+     Absorption Rate                      0.452682 +/- 0.00085434

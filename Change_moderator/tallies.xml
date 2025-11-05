@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tallies>
+  <filter id="12" type="cell">
+    <bins>21</bins>
+  </filter>
+  <filter id="11" type="energy">
+    <bins>0.0 1.0</bins>
+  </filter>
+  <tally id="11" name="therm_abs_in_fuel">
+    <filters>12 11</filters>
+    <scores>absorption</scores>
+  </tally>
+  <tally id="12" name="therm_abs_total">
+    <filters>11</filters>
+    <scores>absorption</scores>
+  </tally>
+</tallies>
