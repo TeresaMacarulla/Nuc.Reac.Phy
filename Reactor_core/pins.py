@@ -5,8 +5,8 @@ def build_pin_universes():
     # ----------------- Materials -----------------
     # UO2 
     urox = openmc.Material(name="Uranium dioxide")
-    urox.add_nuclide("U235", 0.02)
-    urox.add_nuclide("U238", 0.98)
+    urox.add_nuclide("U235", 0.012)
+    urox.add_nuclide("U238", 0.988)
     urox.add_element("O", 2.0)
     urox.set_density("g/cm3", 10.97)
     urox.add_s_alpha_beta("c_O_in_UO2")
