@@ -1,8 +1,8 @@
 import numpy as np
-import glob
+#import glob
 import matplotlib.pyplot as plt
 import openmc
-import math
+#import math
 from pathlib import Path
 from utilities import build_core
 from utilities import plot_core_xy
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     print("2: Run the simulation.")
     print("3: Run the simulation fixing the fuel temperature.")
     print("4: Plot neutron flux distribution.")
-    print("5: Run the reactor for 6 months at a power level of 1200 MW thermal.")
+    print("5: Run the reactor for 6 months at a power level of 1200 MW thermal. WARNING: This takes long time!")
     print("6: See some results from 6 month operation")
 
     number = float(input("Choose a number: "))
@@ -99,30 +99,39 @@ if __name__ == "__main__":
 
     elif number == 6:
 
-        """
         # Read the results
-        res = deplete.Results("depletion_results.h5")
+        results = openmc.deplete.ResultsList.from_hdf5("./depletion_results.h5")
 
-        # get_eigenvalue() or get_keff() 
-        try:
-            times, keff, keff_sd = res.get_eigenvalue()          # time [s], k mean, k std
-        except AttributeError:
-            times, (keff, keff_sd) = res.get_keff(time_units='s')  # alternative
+        time, k = results.get_eigenvalue()
+        time /= (24 * 60 * 60)  # convert back to days from seconds
 
-        # From seconds to days
-        t_days = np.array(times, dtype=float)/86400.0
-
-        # Plot
-        plt.figure()
-        plt.errorbar(t_days, keff, yerr=keff_sd, marker='o', linestyle='-')
+        plt.errorbar(time, k[:, 0], yerr=k[:, 1])
         plt.xlabel("Time [days]")
-        plt.ylabel(r"$k_{\mathrm{eff}}$")
-        plt.title(r"$k_{\mathrm{eff}}$ during first 6 months at 1200 MW$_\mathrm{th}$")
+        plt.ylabel("$k_{eff}\pm \sigma$");
         plt.grid(True)
-        plt.tight_layout()
         plt.savefig("keff_vs_time_burnup.pdf", dpi=160)
         plt.show()
-        """
+
+        t, u5 = results.get_atoms("1", "U235")
+        t, pu239 = results.get_atoms("1", "Pu239")
+        t /= (24 * 60 * 60)  # convert back to days from seconds
+        plt.plot(t, u5, label="U235")
+        plt.plot(t, pu239, label="Pu239")
+
+        for y, label, color in [(u5, "U-235", "tab:blue"), (pu239, "Pu-239", "tab:orange")]:
+            plt.scatter([t[0], t[-1]], [y[0], y[-1]], color=color, s=40, zorder=5)
+            plt.text(t[0],  y[0],  f"{y[0]:.2e}", color=color, ha='right', va='bottom', fontsize=12)
+            plt.text(t[-1], y[-1], f"{y[-1]:.2e}", color=color, ha='left', va='bottom', fontsize=12)
+
+        plt.xlabel("Time [days]")
+        plt.ylabel("Number of atoms")
+        plt.legend()
+        plt.savefig("atoms_vs_time.pdf", dpi=160)
+        plt.show()
+
+        Vfuel = calc_fuel_volume_cm3()
+        print(Vfuel)
+
 
     else:
         print("Not an option.")
