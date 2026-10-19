@@ -1,37 +1,51 @@
 <?xml version='1.0' encoding='utf-8'?>
 <materials>
-  <material depletable="true" id="1" name="Uranium dioxide">
-    <density units="g/cm3" value="10.97"/>
-    <nuclide ao="0.012" name="U235"/>
-    <nuclide ao="0.988" name="U238"/>
-    <nuclide ao="1.999242" name="O16"/>
-    <nuclide ao="0.000758" name="O17"/>
+  <material id="1" name="Uranium dioxide" depletable="true">
+    <density value="10.97" units="g/cm3"/>
+    <nuclide name="U235" ao="0.012"/>
+    <nuclide name="U238" ao="0.988"/>
+    <nuclide name="O16" ao="1.999242"/>
+    <nuclide name="O17" ao="0.000758"/>
     <sab name="c_O_in_UO2"/>
   </material>
   <material id="2" name="Light water">
-    <density units="g/cm3" value="1.0"/>
-    <nuclide ao="2.0" name="H1"/>
-    <nuclide ao="0.999621" name="O16"/>
-    <nuclide ao="0.000379" name="O17"/>
+    <density value="1.0" units="g/cm3"/>
+    <nuclide name="H1" ao="2.0"/>
+    <nuclide name="O16" ao="0.999621"/>
+    <nuclide name="O17" ao="0.000379"/>
     <sab name="c_H_in_H2O"/>
   </material>
   <material id="3" name="Helium">
-    <density units="g/cm3" value="0.0001786"/>
-    <nuclide ao="1.0" name="He4"/>
+    <density value="0.0001786" units="g/cm3"/>
+    <nuclide name="He4" ao="1.0"/>
   </material>
   <material id="4" name="Zircaloy">
-    <density units="g/cm3" value="6.52"/>
-    <nuclide ao="0.5145" name="Zr90"/>
-    <nuclide ao="0.1122" name="Zr91"/>
-    <nuclide ao="0.1715" name="Zr92"/>
-    <nuclide ao="0.1738" name="Zr94"/>
-    <nuclide ao="0.028" name="Zr96"/>
+    <density value="6.52" units="g/cm3"/>
+    <nuclide name="Zr90" ao="0.5145"/>
+    <nuclide name="Zr91" ao="0.1122"/>
+    <nuclide name="Zr92" ao="0.1715"/>
+    <nuclide name="Zr94" ao="0.1738"/>
+    <nuclide name="Zr96" ao="0.028"/>
   </material>
-  <material id="11" name="Steel">
-    <density units="g/cm3" value="7.9"/>
-    <nuclide ao="0.05845" name="Fe54"/>
-    <nuclide ao="0.91754" name="Fe56"/>
-    <nuclide ao="0.02119" name="Fe57"/>
-    <nuclide ao="0.00282" name="Fe58"/>
+  <material id="5" name="B4C">
+    <density value="2.52" units="g/cm3"/>
+    <nuclide name="B10" ao="0.796"/>
+    <nuclide name="B11" ao="3.204"/>
+    <nuclide name="C0" ao="1.0"/>
+  </material>
+  <material id="6" name="Steel">
+    <density value="7.9" units="g/cm3"/>
+    <nuclide name="Fe54" ao="0.05845"/>
+    <nuclide name="Fe56" ao="0.91754"/>
+    <nuclide name="Fe57" ao="0.02119"/>
+    <nuclide name="Fe58" ao="0.00282"/>
+  </material>
+  <material id="7" name="Steel2">
+    <density value="7.85" units="g/cm3"/>
+    <nuclide name="Fe54" ao="5.77486"/>
+    <nuclide name="Fe56" ao="90.652952"/>
+    <nuclide name="Fe57" ao="2.093572"/>
+    <nuclide name="Fe58" ao="0.278616"/>
+    <nuclide name="Mn55" ao="1.2"/>
   </material>
 </materials>

@@ -84,7 +84,7 @@ if __name__ == "__main__":
         reactor_model.settings  = openmc.Settings.from_xml('settings.xml')
         reactor_model.tallies = openmc.Tallies.from_xml('tallies.xml')
 
-        #Designating the depletion chain being used for our depletion calculation
+        # Designating the depletion chain being used for our depletion calculation
         chain = openmc.deplete.Chain.from_xml("./chain_endfb80_pwr.xml")
         operator = openmc.deplete.CoupledOperator(reactor_model, "./chain_endfb80_pwr.xml")
         

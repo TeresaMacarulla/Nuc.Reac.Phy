@@ -36,9 +36,19 @@ def build_pin_universes():
     b4c.add_element("C", 1.0)             # 1 carbon atom per formula unit
     b4c.set_density("g/cm3", 2.52)
 
+    # Steel
+    steel = openmc.Material(name="Steel"); 
+    steel.add_element("Fe", 1.0); 
+    steel.set_density("g/cm3", 7.9)
 
-    # Keep a list to export later from assembly.py
-    materials = [urox, light_water, helium, zircaloy, b4c]
+    steel2 = openmc.Material(name="Steel2")
+    steel2.add_element("Fe", 98.80)
+    steel2.add_element("Mn", 1.20)
+    steel2.set_density("g/cm3", 7.850)  
+
+
+    # Keep a list to export later in assembly.py
+    materials = [urox, light_water, helium, zircaloy, b4c, steel, steel2]
 
     # ----------------- Pin geometry (Part 1) -----------------
     # Box 1.4x1.4 cm in XY, height 2 cm is handled by assembly; here just local z planes
@@ -75,6 +85,9 @@ def build_pin_universes():
     # -------- Universe: "water pin" (fuel region replaced by water) --------
     water_fuel_cell = openmc.Cell(name="fuel_as_water", fill=light_water, region=fuel_region)
     water_universe = openmc.Universe(cells=[water_fuel_cell, gap_cell, clad_cell, mod_cell])
+
+    mats = openmc.Materials(materials)
+    mats.export_to_xml()
 
     return pin_universe, controlpin_universe, water_universe, materials, light_water
 
