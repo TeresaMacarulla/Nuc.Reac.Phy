@@ -4,9 +4,9 @@
   <particles>10000</particles>
   <batches>150</batches>
   <inactive>30</inactive>
-  <source particle="neutron" strength="1.0" type="independent">
+  <source type="independent" strength="1.0" particle="neutron">
     <space type="fission">
-      <parameters>-105.0 -105.0 -150.0 105.0 105.0 150.0</parameters>
+      <parameters>-220 -220 -150 220 220 150</parameters>
     </space>
   </source>
 </settings>

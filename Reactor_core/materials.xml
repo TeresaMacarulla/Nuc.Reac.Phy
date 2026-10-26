@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <materials>
-  <material id="1" name="Uranium dioxide" depletable="true">
+  <material id="1" name="Uranium dioxide" depletable="true" volume="5446767.67908784">
     <density value="10.97" units="g/cm3"/>
-    <nuclide name="U235" ao="0.012"/>
-    <nuclide name="U238" ao="0.988"/>
     <nuclide name="O16" ao="1.999242"/>
     <nuclide name="O17" ao="0.000758"/>
+    <nuclide name="U235" ao="0.012"/>
+    <nuclide name="U238" ao="0.988"/>
     <sab name="c_O_in_UO2"/>
   </material>
   <material id="2" name="Light water">
@@ -42,10 +42,10 @@
   </material>
   <material id="7" name="Steel2">
     <density value="7.85" units="g/cm3"/>
+    <nuclide name="Mn55" ao="1.2"/>
     <nuclide name="Fe54" ao="5.77486"/>
     <nuclide name="Fe56" ao="90.652952"/>
     <nuclide name="Fe57" ao="2.093572"/>
     <nuclide name="Fe58" ao="0.278616"/>
-    <nuclide name="Mn55" ao="1.2"/>
   </material>
 </materials>
